@@ -16,7 +16,7 @@ class Hosts extends Component {
     render() {
         const hosts = this.state && this.state.hosts ? this.state.hosts : [];
         const hostsButtons = hosts.map((host) =>
-            <Link to={`/host/${host}`}><Button>{hosts ? hosts[0] : "N/A"}</Button></Link>
+            <Link key={host} to={`/host/${host}`}><Button>{hosts ? hosts[0] : "N/A"}</Button></Link>
         );
 
         return (
