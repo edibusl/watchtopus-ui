@@ -1,0 +1,6 @@
+FROM node:8.12.0-jessie
+ARG CACHE_DATE=2018-10-27
+ADD ./src_files/. /watchtopus-ui/.
+WORKDIR /watchtopus-ui
+RUN npm install
+CMD npm start

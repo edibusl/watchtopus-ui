@@ -19,3 +19,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+deployment/watchtopus-ui/src_files/public
+deployment/watchtopus-ui/src_files/src
+deployment/watchtopus-ui/src_files/package*
