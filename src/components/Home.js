@@ -3,10 +3,11 @@ import axios from 'axios'
 import '../App.css';
 import Button from 'react-bootstrap/lib/Button';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import getBaseUrl from "../utils/Index"
 
 class Hosts extends Component {
     componentDidMount() {
-        axios.get('http://localhost:3001/hosts/list').then(response => {
+        axios.get(getBaseUrl() + '/hosts/list').then(response => {
             this.setState({
                 hosts: response.data
             });

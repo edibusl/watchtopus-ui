@@ -5,7 +5,7 @@
 ##########################
 
 # Delete files that were copied to docker dir on previous builds (if any)
-rm -rf watchtopus-ui/src_files
+rm -rf watchtopus-ui/src_files/*
 
 # Copy source files to docker
 mkdir watchtopus-ui/src_files
@@ -16,6 +16,9 @@ cp -r ../package-lock.json watchtopus-ui/src_files/
 
 # Build
 sudo docker build -t watchtopus-ui watchtopus-ui/
+
+# Remove the src files that were copied for docker build only
+rm -rf watchtopus-ui/src_files/*
 
 
 ##########################################

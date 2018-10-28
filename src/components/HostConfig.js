@@ -10,6 +10,7 @@ import Form from "react-bootstrap/lib/Form";
 import {Link} from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import getBaseUrl from "../utils/Index"
 
 const lblStyle = {"marginRight": "10px"}
 
@@ -22,7 +23,7 @@ class HostConfig extends Component {
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:3001/hosts/${this.getHostName()}`).then(response => {
+        axios.get(`${getBaseUrl()}/hosts/${this.getHostName()}`).then(response => {
             this.setState({
                 hostConfig: {...this.getDefaultConfig(), ...response.data}
             });
@@ -53,7 +54,7 @@ class HostConfig extends Component {
 
     handleSave(){
         const data = this.state.hostConfig;
-        axios.post(`http://localhost:3001/hosts/${this.getHostName()}`, data).then(response => {
+        axios.post(`${getBaseUrl()}/hosts/${this.getHostName()}`, data).then(response => {
             toast.success("Configuration saved successfully.");
         }).catch(function(){
             toast.error("Error saving host configs.");
