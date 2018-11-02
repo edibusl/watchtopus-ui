@@ -5,7 +5,7 @@
 ##########################
 
 # Delete files that were copied to docker dir on previous builds (if any)
-rm -rf watchtopus-ui/src_files/*
+rm -rf watchtopus-ui/src_files
 
 # Copy source files to docker
 mkdir watchtopus-ui/src_files
