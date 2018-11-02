@@ -5,6 +5,8 @@ import Button from 'react-bootstrap/lib/Button';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import getBaseUrl from "../utils/Index"
 
+const styleBottomMargin = {"margin-bottom": "10px"}
+
 class Hosts extends Component {
     componentDidMount() {
         axios.get(getBaseUrl() + '/hosts/list').then(response => {
@@ -17,14 +19,18 @@ class Hosts extends Component {
     render() {
         const hosts = this.state && this.state.hosts ? this.state.hosts : [];
         const hostsButtons = hosts.map((host) =>
-            <Link key={host} to={`/host/${host.hostId}`}><Button>{host.hostName ? host.hostName : host.hostId}</Button></Link>
+            <div>
+                <Link key={host} to={`/host/${host.hostId}`}><Button style={styleBottomMargin}>{host.hostName ? host.hostName : host.hostId}</Button></Link>
+                <br/>
+            </div>
         );
 
         return (
             <div className="App">
                 <h1>Watchtopus Admin</h1>
                 <br/>
-                Monitored agents:
+                <b>Monitored agents:</b>
+                <br/><br/>
                 <div>
                     {hostsButtons}
                     {hosts.length == 0 && "No agents found!"}
